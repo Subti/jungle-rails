@@ -1,2 +1,24 @@
-<h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+<h1 class="text-center">Admin Dashboard</h1>
+
+<div class="row">
+  <div class="col-md-6">
+    <%= link_to [:admin, :products], class: 'card-link text-decoration-none' do %>
+      <div class="card text-white bg-primary mb-3 text-center">
+        <div class="card-header">Products</div>
+        <div class="card-body">
+          <h4 class="card-title"><%= @product_count %></h4>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-md-6">
+    <%= link_to [:admin, :products], class: 'card-link text-decoration-none' do %>
+      <div class="card text-white bg-success mb-3 text-center">
+        <div class="card-header">Categories</div>
+        <div class="card-body">
+          <h4 class="card-title"><%= @category_count %></h4>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
