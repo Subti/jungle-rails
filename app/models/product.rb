@@ -8,4 +8,12 @@ class Product < ApplicationRecord
   validates :price, presence: true
   validates :quantity, presence: true
   validates :category, presence: true
+
+  validate :price_cents_not_zero
+
+  private
+
+  def price_cents_not_zero
+    errors.add(:price, "can't be zero") if price_cents.zero?
+  end
 end
