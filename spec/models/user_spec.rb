@@ -89,4 +89,38 @@ RSpec.describe User, type: :model do
       expect(@user).not_to be_valid
     end
   end
+
+  describe '.authenticate_with_credentials' do
+    it 'should authenticate a user with valid credentials' do
+      @user = User.new(
+        name: 'Test User',
+        email: 'example@domain.com',
+        password: 'password',
+        password_confirmation: 'password'
+      )
+      @user.save
+      expect(User.authenticate_with_credentials('     example@domain.com', 'password')).to eq(@user)
+    end
+    it 'should not authenticate a user with invalid credentials' do
+      @user = User.new(
+        name: 'Test User',
+        email: 'example@domain.com',
+        password: 'password',
+        password_confirmation: 'password'
+      )
+      @user.save
+      expect(User.authenticate_with_credentials('notexample@domain.com', 'password')).not_to eq(@user)
+    end
+    it 'should authenticate a user with valid credentials (case insensitive)' do
+      @user = User.new(
+        name: 'Test User',
+        email: 'example@domain.com',
+        password: 'password',
+        password_confirmation: 'password'
+      )
+      @user.save
+      expect(User.authenticate_with_credentials('EXAmPle@DOmaIn.cOm', 'password')).to eq(@user)
+    end
+  end
+
 end
