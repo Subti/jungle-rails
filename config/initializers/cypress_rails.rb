@@ -39,4 +39,5 @@ end
 
 CypressRails.hooks.before_server_stop do
   # Called once, at_exit
+  DatabaseCleaner.clean
 end
