@@ -57,4 +57,16 @@ describe("Home", () => {
   it("There is a logout button", () => {
     cy.get(".nav-link").contains("Logout").should("be.visible");
   });
+  it("Click on the logout button", () => {
+    cy.get(".nav-link").contains("Logout").click();
+  });
+  it("Is redirected to the login page", () => {
+    cy.get(".login-form").should("be.visible");
+  });
+  it("Click on the logo", () => {
+    cy.get(".navbar-brand").click();
+  });
+  it("Is redirected to the home page", () => {
+    cy.get(".products article").should("be.visible");
+  });
 });
