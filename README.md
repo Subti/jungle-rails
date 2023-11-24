@@ -13,7 +13,8 @@ Jungle is a fully functional, deployment-ready mini e-commerce application built
 
 ## Screenshots
 
-![Home Page](/docs/home_page.png)
+![Home Page](/docs/home_page_1.png)
+![Home Page](/docs/home_page_2.png)
 ![Product Page](/docs/product_page.png)
 ![Cart Page](/docs/cart_page.png)
 
